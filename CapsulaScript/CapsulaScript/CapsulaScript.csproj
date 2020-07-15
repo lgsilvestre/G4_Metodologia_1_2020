@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\CanvasViewModel.cs" />
+    <Compile Include="ViewModel\InputViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CanvasView.xaml.cs">
       <DependentUpon>CanvasView.xaml</DependentUpon>
