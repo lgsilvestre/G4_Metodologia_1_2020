@@ -185,7 +185,7 @@
                 <TextBlock Text="Input:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <TextBox DockPanel.Dock="Top" Width="200"
+                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True"
                          Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Left" Margin="20">
