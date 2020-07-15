@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapsulaScript.Model
 {
-    class Expression : OnPropertyChangedBase
+    public class Expression : OnPropertyChangedBase
     {
 
         private string _Expresion;

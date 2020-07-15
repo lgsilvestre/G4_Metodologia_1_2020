@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace CapsulaScript.ViewModel
 {
-    class CanvasViewModel : ViewModelBase
+    public class CanvasViewModel : ViewModelBase
     {
 
         private List<FormattedWord> _Words;

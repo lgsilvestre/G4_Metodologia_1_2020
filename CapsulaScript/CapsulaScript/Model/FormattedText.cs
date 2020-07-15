@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapsulaScript.Model
 {
-    class FormattedText : OnPropertyChangedBase
+    public class FormattedText : OnPropertyChangedBase
     {
 
         private string _Text;

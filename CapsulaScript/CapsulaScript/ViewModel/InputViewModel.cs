@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapsulaScript.ViewModel
 {
-    class InputViewModel : ViewModelBase
+    public class InputViewModel : ViewModelBase
     {
 
         private string _Input;
