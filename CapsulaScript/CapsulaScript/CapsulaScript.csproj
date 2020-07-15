@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Expression.cs" />
+    <Compile Include="Model\FormattedText.cs" />
+    <Compile Include="Model\FormattedWord.cs" />
     <Compile Include="ViewModel\CanvasViewModel.cs" />
     <Compile Include="ViewModel\InputViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
@@ -113,8 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,34 +1,36 @@
-﻿using System;
+﻿using CapsulaScript.MVVMHelpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapsulaScript.ViewModel
+namespace CapsulaScript.Model
 {
-    class InputViewModel : ViewModelBase
+    class FormattedText : OnPropertyChangedBase
     {
 
-        private string _Input;
-        public string Input
+        private string _Text;
+        public string Text
         {
-            get { return _Input; }
+            get { return _Text; }
             set
             {
-                if (_Input == value) return;
-                _Input = value;
+                if (_Text == value) return;
+                _Text = value;
                 OnPropertyChanged();
             }
         }
 
-        private Double _Rotation;
-        public Double Rotation
+
+        private Double _Rotationn;
+        public Double Rotationn
         {
-            get { return _Rotation; }
+            get { return _Rotationn; }
             set
             {
-                if (_Rotation == value) return;
-                _Rotation = value;
+                if (_Rotationn == value) return;
+                _Rotationn = value;
                 OnPropertyChanged();
             }
         }
@@ -53,6 +55,18 @@ namespace CapsulaScript.ViewModel
             {
                 if (_TranslationY == value) return;
                 _TranslationY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private List<FormattedWord> _Words;
+        public List<FormattedWord> Words
+        {
+            get { return _Words; }
+            set
+            {
+                if (_Words == value) return;
+                _Words = value;
                 OnPropertyChanged();
             }
         }
