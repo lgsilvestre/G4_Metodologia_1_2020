@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapsulaScript.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace CapsulaScript.ViewModel
             {
                 if (_Input == value) return;
                 _Input = value;
+                Globals.FormattedText.Text = value;
                 OnPropertyChanged();
             }
         }

@@ -10,7 +10,8 @@
     <UserControl.DataContext>
         <vm:CanvasViewModel/>
     </UserControl.DataContext>
-    <Grid>
-        <TextBlock Text="Adios"/>
-    </Grid>
+    <DockPanel Background="White">
+        <TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
+                 VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </DockPanel>
 </UserControl>
