@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapsulaScript"
+        xmlns:view="clr-namespace:CapsulaScript.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
         
+    </Window.Resources>
+    <Grid>
+        <view:InputView/>
     </Grid>
 </Window>
