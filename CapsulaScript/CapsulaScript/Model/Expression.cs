@@ -21,5 +21,17 @@ namespace CapsulaScript.Model
                 OnPropertyChanged();
             }
         }
+
+        private List<string> _TokenExpression;
+        public List<string> TokenExpression
+        {
+            get { return _TokenExpression; }
+            set
+            {
+                if (_TokenExpression == value) return;
+                _TokenExpression = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
