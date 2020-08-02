@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace CapsulaScript.Converters
 {
-    [ValueConversion(typeof(string), typeof(System.Windows.FontWeight))]
+    [ValueConversion(typeof(string), typeof(FontWeight))]
     public class StringToFontWeightConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

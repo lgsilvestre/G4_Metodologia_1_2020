@@ -1,4 +1,5 @@
 ﻿using CapsulaScript.MVVMHelpers;
+using System.Windows;
 
 namespace CapsulaScript.Model
 {
@@ -9,6 +10,8 @@ namespace CapsulaScript.Model
             Word = "";
             FontSize = 16;
             FontWeight = "Bold" ;
+            FontStyle = "Italic";
+            Underline = true;
         }
 
         private string _Word;

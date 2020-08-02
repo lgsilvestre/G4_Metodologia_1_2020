@@ -13,6 +13,8 @@
     </UserControl.DataContext>
     <UserControl.Resources>
         <converters:StringToFontWeightConverter x:Key="FWConverter"/>
+        <converters:StringToFontStyleConverter x:Key="FSConverter"/>
+        <converters:BoolToUnderlineConverter x:Key="BUConverter"/>
     </UserControl.Resources>
     <DockPanel Background="White">
         <!--<TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
@@ -27,8 +29,11 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Word}" 
+                               FontFamily="Lucida Handwriting"
                                FontSize="{Binding FontSize}"
-                               FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"/>
+                               FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
+                               FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"
+                               TextDecorations="{Binding Underline, Converter={StaticResource BUConverter}}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
