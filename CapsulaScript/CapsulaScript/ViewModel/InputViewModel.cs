@@ -31,6 +31,7 @@ namespace CapsulaScript.ViewModel
             {
                 if (_Rotation == value) return;
                 _Rotation = value;
+                Globals.FormattedText.Rotation = value;
                 OnPropertyChanged();
             }
         }
@@ -43,6 +44,7 @@ namespace CapsulaScript.ViewModel
             {
                 if (_TranslationX == value) return;
                 _TranslationX = value;
+                Globals.FormattedText.TranslationX = value;
                 OnPropertyChanged();
             }
         }
@@ -54,6 +56,7 @@ namespace CapsulaScript.ViewModel
             set
             {
                 if (_TranslationY == value) return;
+                Globals.FormattedText.TranslationY = value;
                 _TranslationY = value;
                 OnPropertyChanged();
             }
