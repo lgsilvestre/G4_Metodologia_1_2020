@@ -79,5 +79,18 @@ namespace CapsulaScript.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        private string _Expresion;
+        public string Expresion
+        {
+            get { return _Expresion; }
+            set
+            {
+                if (_Expresion == value) return;
+                _Expresion = value;
+                Globals.Expression.Expresion = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
