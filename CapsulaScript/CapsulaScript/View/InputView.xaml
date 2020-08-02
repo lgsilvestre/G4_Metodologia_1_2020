@@ -172,7 +172,7 @@
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
                 VerticalAlignment="Top"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
-                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click"/>
                 <Button Content="Invertir palabra" DockPanel.Dock="Right" Margin="10, 0, 10, 0"
                 VerticalAlignment="Top"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
@@ -192,7 +192,7 @@
                 <TextBlock Text="Output:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <local:CanvasView DockPanel.Dock="Top"/>
+                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top"/>
             </DockPanel>
             
         </DockPanel>
