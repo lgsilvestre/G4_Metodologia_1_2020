@@ -23,14 +23,14 @@ namespace CapsulaScript.Model
         }
 
 
-        private Double _Rotationn;
-        public Double Rotationn
+        private Double _Rotation;
+        public Double Rotation
         {
-            get { return _Rotationn; }
+            get { return _Rotation; }
             set
             {
-                if (_Rotationn == value) return;
-                _Rotationn = value;
+                if (_Rotation == value) return;
+                _Rotation = value;
                 OnPropertyChanged();
             }
         }
