@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CapsulaScript.Model
@@ -79,14 +80,14 @@ namespace CapsulaScript.Model
 
         private void SplitText()
         {
-            List<FormattedWord> fWords;
+            Text = Regex.Replace(Text, @"\s+", " ");
             List<string> strList = Text.Split(new char[] { ' ' }).ToList();
             Words.Clear();
             foreach (string splitted in strList)
             {
                 //TO DO applicar formato aca en el constructor de FormattedWord
                 FormattedWord fw = new FormattedWord();
-                fw.Word = $"{splitted} ";
+                fw.Word = $"{splitted.Trim()} ";
                 Words.Add(fw);
             }
         }
