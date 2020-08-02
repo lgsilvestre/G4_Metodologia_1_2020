@@ -13,7 +13,6 @@ namespace CapsulaScript.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            TextDecoration decoration;
             if ((bool)value)
             {
                 return TextDecorations.Underline;

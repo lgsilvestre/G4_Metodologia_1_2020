@@ -14,7 +14,6 @@ namespace CapsulaScript.ViewModel
         {
             GlobalText = Globals.FormattedText;
             ControlPointVisibility = Visibility.Collapsed;
-
         }
 
         private FormattedText _globalText;
