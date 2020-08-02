@@ -62,6 +62,7 @@
     <Compile Include="Model\FormattedText.cs" />
     <Compile Include="Model\FormattedWord.cs" />
     <Compile Include="Model\Globals.cs" />
+    <Compile Include="Validators\InputExpressionValidator.cs" />
     <Compile Include="Validators\InputTextValidator.cs" />
     <Compile Include="Validators\TranslationValidator.cs" />
     <Compile Include="ViewModel\CanvasViewModel.cs" />
