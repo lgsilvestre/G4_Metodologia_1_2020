@@ -172,7 +172,7 @@
                          HorizontalAlignment="Left" 
                          Style="{DynamicResource formatotextbox1}"/>
                 
-                <TextBlock Text="Traslación:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
 
                 <TextBox DockPanel.Dock="Left"
                          HorizontalAlignment="Left" 

@@ -13,7 +13,7 @@ namespace CapsulaScript.Validators
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            var regex = new Regex(@"^\s*([-+]?\d+),\s*([-+]?\d+)\s*$");
+            var regex = new Regex(@"^\s*([-+]?\d+)\s*,\s*([-+]?\d+)\s*$");
             var match = regex.Match((string)value);
             if (match.Success)
             {

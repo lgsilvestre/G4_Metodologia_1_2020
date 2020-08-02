@@ -46,10 +46,9 @@ namespace CapsulaScript.ViewModel
             {
                 if (_Coordinate == value) return;
                 _Coordinate = value;
-                var regex = new Regex(@"([-+]?\d+)");
-                var match = regex.Match(Coordinate);
-                TranslationX = Int32.Parse(match.Groups[0].Value);
-                TranslationY = Int32.Parse(match.Groups[1].Value);
+                string[] strList = Coordinate.Split(new char[] { ',' });
+                TranslationX = Int32.Parse(strList[0]);
+                TranslationY = Int32.Parse(strList[1]);
                 Console.WriteLine();
                 OnPropertyChanged();
             }
