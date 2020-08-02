@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\StringToFontWeightConverter.cs" />
     <Compile Include="Model\Expression.cs" />
     <Compile Include="Model\FormattedText.cs" />
     <Compile Include="Model\FormattedWord.cs" />

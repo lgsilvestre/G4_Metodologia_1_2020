@@ -4,16 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CapsulaScript.View"
+             xmlns:converters="clr-namespace:CapsulaScript.Converters"
              xmlns:vm="clr-namespace:CapsulaScript.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:CanvasViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <converters:StringToFontWeightConverter x:Key="FWConverter"/>
+    </UserControl.Resources>
     <DockPanel Background="White">
         <!--<TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
                  VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>-->
-        <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top">
+        <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top" 
+                      HorizontalAlignment="Center" VerticalAlignment="Center">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -21,7 +26,9 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Word}"/>
+                    <TextBlock Text="{Binding Word}" 
+                               FontSize="{Binding FontSize}"
+                               FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

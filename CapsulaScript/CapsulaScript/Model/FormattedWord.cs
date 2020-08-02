@@ -1,14 +1,15 @@
 ﻿using CapsulaScript.MVVMHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapsulaScript.Model
 {
     public class FormattedWord : OnPropertyChangedBase
     {
+        public FormattedWord()
+        {
+            Word = "";
+            FontSize = 16;
+            FontWeight = "Bold" ;
+        }
 
         private string _Word;
         public string Word
