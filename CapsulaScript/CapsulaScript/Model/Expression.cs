@@ -37,6 +37,11 @@ namespace CapsulaScript.Model
 
         private void TokenizeExpression()
         {
+            List<string> tempTokExp = new List<string>();
+            string[] auxSArray = Expresion.Split(',');
+            foreach(string s in auxSArray)
+                tempTokExp.Add(s);
+            TokenExpression = tempTokExp;
         }
     }
 }
