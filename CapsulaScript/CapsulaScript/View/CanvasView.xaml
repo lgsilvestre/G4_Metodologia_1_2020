@@ -28,12 +28,22 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Word}" 
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="Orange" BorderThickness="1" 
+                                Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                            AncestorType={x:Type UserControl}},
+                            Path=DataContext.ControlPointVisibility}"/>
+                        <TextBlock Text="{Binding Word}" 
                                FontFamily="Lucida Handwriting"
                                FontSize="{Binding FontSize}"
                                FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
                                FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"
                                TextDecorations="{Binding Underline, Converter={StaticResource BUConverter}}"/>
+                        <Border BorderBrush="Orange" BorderThickness="1" 
+                                Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                            AncestorType={x:Type UserControl}},
+                            Path=DataContext.ControlPointVisibility}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
