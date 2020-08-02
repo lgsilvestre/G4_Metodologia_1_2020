@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CapsulaScript.ViewModel
@@ -36,6 +37,24 @@ namespace CapsulaScript.ViewModel
             }
         }
 
+
+        private string _Coordinate;
+        public string Coordinate
+        {
+            get { return _Coordinate; }
+            set
+            {
+                if (_Coordinate == value) return;
+                _Coordinate = value;
+                var regex = new Regex(@"([-+]?\d+)");
+                var match = regex.Match(Coordinate);
+                TranslationX = Int32.Parse(match.Groups[0].Value);
+                TranslationY = Int32.Parse(match.Groups[1].Value);
+                Console.WriteLine();
+                OnPropertyChanged();
+            }
+        }
+
         private int _TranslationX;
         public int TranslationX
         {
@@ -56,8 +75,8 @@ namespace CapsulaScript.ViewModel
             set
             {
                 if (_TranslationY == value) return;
-                Globals.FormattedText.TranslationY = value;
                 _TranslationY = value;
+                Globals.FormattedText.TranslationY = value;
                 OnPropertyChanged();
             }
         }

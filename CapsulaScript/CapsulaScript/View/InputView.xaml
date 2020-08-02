@@ -173,10 +173,19 @@
                          Style="{DynamicResource formatotextbox1}"/>
                 
                 <TextBlock Text="Traslación:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
-                
-                <TextBox Text="X, Y" DockPanel.Dock="Left"
+
+                <TextBox DockPanel.Dock="Left"
                          HorizontalAlignment="Left" 
-                         Style="{DynamicResource formatotextbox1}"/>
+                         MinWidth="70"
+                         Style="{DynamicResource formatotextbox1}">
+                    <TextBox.Text>
+                        <Binding Path="Coordinate" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valrules:TranslationValidator/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
                 VerticalAlignment="Top"  HorizontalAlignment="Right"
@@ -206,6 +215,7 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
+                
             </DockPanel>
             <DockPanel DockPanel.Dock="Left" Margin="20">
                 <TextBlock Text="Output:" DockPanel.Dock="Top"

@@ -13,7 +13,7 @@ namespace CapsulaScript.Validators
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            var regex = new Regex(@"^([-+]?\d+),\s*([-+]?\d+)$");
+            var regex = new Regex(@"^\s*([-+]?\d+),\s*([-+]?\d+)\s*$");
             var match = regex.Match((string)value);
             if (match.Success)
             {
@@ -21,7 +21,7 @@ namespace CapsulaScript.Validators
             }
             else
             {
-                return new ValidationResult(false, $"Solo caracteres alfabéticos");
+                return new ValidationResult(false, $"Respetar formato X,Y");
             }
         }
     }
