@@ -168,9 +168,17 @@
 
                 <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
 
-                <TextBox Text="grados" DockPanel.Dock="Left"
+                <TextBox MinWidth="50" DockPanel.Dock="Left"
                          HorizontalAlignment="Left" 
-                         Style="{DynamicResource formatotextbox1}"/>
+                         Style="{DynamicResource formatotextbox1}">
+                    <TextBox.Text>
+                        <Binding Path="Rotation" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valrules:RotationValidator/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
 
