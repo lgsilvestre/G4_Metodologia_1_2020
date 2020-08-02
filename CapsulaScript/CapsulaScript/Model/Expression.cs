@@ -18,8 +18,30 @@ namespace CapsulaScript.Model
             {
                 if (_Expresion == value) return;
                 _Expresion = value;
+                TokenizeExpression();
                 OnPropertyChanged();
             }
+        }
+
+        private List<string> _TokenExpression;
+        public List<string> TokenExpression
+        {
+            get { return _TokenExpression; }
+            private set
+            {
+                if (_TokenExpression == value) return;
+                _TokenExpression = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void TokenizeExpression()
+        {
+            List<string> tempTokExp = new List<string>();
+            string[] auxSArray = Expresion.Split(',');
+            foreach(string s in auxSArray)
+                tempTokExp.Add(s);
+            TokenExpression = tempTokExp;
         }
     }
 }
