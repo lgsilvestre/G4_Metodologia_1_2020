@@ -18,6 +18,7 @@ namespace CapsulaScript.Model
             {
                 if (_Expresion == value) return;
                 _Expresion = value;
+                TokenizeExpression();
                 OnPropertyChanged();
             }
         }
@@ -26,12 +27,16 @@ namespace CapsulaScript.Model
         public List<string> TokenExpression
         {
             get { return _TokenExpression; }
-            set
+            private set
             {
                 if (_TokenExpression == value) return;
                 _TokenExpression = value;
                 OnPropertyChanged();
             }
+        }
+
+        private void TokenizeExpression()
+        {
         }
     }
 }
