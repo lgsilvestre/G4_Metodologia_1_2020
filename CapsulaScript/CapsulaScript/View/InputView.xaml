@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CapsulaScript.View"
              xmlns:vm="clr-namespace:CapsulaScript.ViewModel"
+             xmlns:valrules="clr-namespace:CapsulaScript.Validators"
     mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
@@ -154,25 +155,43 @@
                 <TextBlock Text="Expresiones:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
                 <TextBox Text="Prueba1" DockPanel.Dock="Left" Style="{DynamicResource formatotextbox1}"/>
             </DockPanel>
+
             <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 10">
                 <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+
                 <Button Content="-" DockPanel.Dock="Left"
                 VerticalAlignment="Top"  HorizontalAlignment="Left"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
+
                 <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+
                 <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+
                 <TextBox Text="grados" DockPanel.Dock="Left"
                          HorizontalAlignment="Left" 
                          Style="{DynamicResource formatotextbox1}"/>
-                <TextBlock Text="Traslación:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
-                <TextBox Text="X, Y" DockPanel.Dock="Left"
+
+                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+
+                <TextBox DockPanel.Dock="Left"
                          HorizontalAlignment="Left" 
-                         Style="{DynamicResource formatotextbox1}"/>
+                         MinWidth="70"
+                         Style="{DynamicResource formatotextbox1}">
+                    <TextBox.Text>
+                        <Binding Path="Coordinate" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valrules:TranslationValidator/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
                 VerticalAlignment="Top"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
-                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click"/>
+
                 <Button Content="Invertir palabra" DockPanel.Dock="Right" Margin="10, 0, 10, 0"
                 VerticalAlignment="Top"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
@@ -180,21 +199,31 @@
             </DockPanel>
 
         </DockPanel>
+
         <DockPanel DockPanel.Dock="Top" Background="#04122e">
             <DockPanel DockPanel.Dock="Left"  Margin="20">
                 <TextBlock Text="Input:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True"
-                         Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
+                    <TextBox.Text>
+                        <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valrules:InputTextValidator/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
             </DockPanel>
             <DockPanel DockPanel.Dock="Left" Margin="20">
                 <TextBlock Text="Output:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <local:CanvasView DockPanel.Dock="Top"/>
+                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top"/>
             </DockPanel>
-            
+
         </DockPanel>
     </DockPanel>
 </UserControl>
