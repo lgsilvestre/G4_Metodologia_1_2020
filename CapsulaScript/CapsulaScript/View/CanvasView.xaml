@@ -11,7 +11,19 @@
         <vm:CanvasViewModel/>
     </UserControl.DataContext>
     <DockPanel Background="White">
-        <TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
-                 VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!--<TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
+                 VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>-->
+        <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Word}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </DockPanel>
 </UserControl>

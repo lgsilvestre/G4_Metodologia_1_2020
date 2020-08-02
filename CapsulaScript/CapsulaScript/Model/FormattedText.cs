@@ -1,6 +1,7 @@
 ﻿using CapsulaScript.MVVMHelpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,10 @@ namespace CapsulaScript.Model
 {
     public class FormattedText : OnPropertyChangedBase
     {
+        public FormattedText()
+        {
+            Words = new ObservableCollection<FormattedWord>();                
+        }
 
         private string _Text;
         public string Text
@@ -18,6 +23,7 @@ namespace CapsulaScript.Model
             {
                 if (_Text == value) return;
                 _Text = value;
+                SplitText();
                 OnPropertyChanged();
             }
         }
@@ -59,8 +65,8 @@ namespace CapsulaScript.Model
             }
         }
 
-        private List<FormattedWord> _Words;
-        public List<FormattedWord> Words
+        private ObservableCollection<FormattedWord> _Words;
+        public ObservableCollection<FormattedWord> Words
         {
             get { return _Words; }
             set
@@ -68,6 +74,20 @@ namespace CapsulaScript.Model
                 if (_Words == value) return;
                 _Words = value;
                 OnPropertyChanged();
+            }
+        }
+
+        private void SplitText()
+        {
+            List<FormattedWord> fWords;
+            List<string> strList = Text.Split(new char[] { ' ' }).ToList();
+            Words.Clear();
+            foreach (string splitted in strList)
+            {
+                //TO DO applicar formato aca en el constructor de FormattedWord
+                FormattedWord fw = new FormattedWord();
+                fw.Word = $"{splitted} ";
+                Words.Add(fw);
             }
         }
     }
