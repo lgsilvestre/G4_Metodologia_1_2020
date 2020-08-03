@@ -240,6 +240,14 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="#fd7200"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
             
             </DockPanel>
