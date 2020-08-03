@@ -1,4 +1,5 @@
-﻿using CapsulaScript.ViewModel;
+﻿using CapsulaScript.Model;
+using CapsulaScript.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace CapsulaScript.View
             {
                 vm.ControlPointVisibility = Visibility.Visible;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
         }
     }
 }

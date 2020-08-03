@@ -24,5 +24,10 @@ namespace CapsulaScript
         {
             InitializeComponent();
         }
+
+        private void InputView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
