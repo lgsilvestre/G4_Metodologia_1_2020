@@ -99,7 +99,7 @@ namespace CapsulaScript.Model
             Text = Regex.Replace(Text, @"\s+", " ");
             List<string> strList = Text.Split(new char[] { ' ' }).ToList();
             Words.Clear();
-            String str = "";
+            string str = "";
 
             for (int i = strList.Count - 1; i > -1; i--)
             {
