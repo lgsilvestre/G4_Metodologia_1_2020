@@ -95,7 +95,7 @@ namespace CapsulaScript.Model
         }
         public void InvertText(TextBox tc)
         {
-
+            if (Text == null) return;
             Text = Regex.Replace(Text, @"\s+", " ");
             List<string> strList = Text.Split(new char[] { ' ' }).ToList();
             Words.Clear();
