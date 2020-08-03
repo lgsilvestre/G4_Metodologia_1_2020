@@ -95,6 +95,7 @@ namespace CapsulaScript.Model
         }
         public void InvertText(TextBox tc)
         {
+            //Words = new ObservableCollection<FormattedWord>(Words.Reverse());
             if (Text == null) return;
             Text = Regex.Replace(Text, @"\s+", " ");
             List<string> strList = Text.Split(new char[] { ' ' }).ToList();
@@ -106,7 +107,7 @@ namespace CapsulaScript.Model
                 FormattedWord fw = new FormattedWord();
                 fw.Word = $"{strList[i].Trim()} ";
 
-                if (i == 0 )
+                if (i == 0)
                 {
                     str += strList[i].Trim();
                 }
@@ -114,7 +115,7 @@ namespace CapsulaScript.Model
                 {
                     str += strList[i].Trim() + " ";
                 }
-                
+
                 Words.Add(fw);
             }
             tc.Text = str;
