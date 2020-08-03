@@ -179,7 +179,7 @@
                     <Ellipse Fill="#2E99F7" MaxWidth="28" MaxHeight="30"/>
                     <Grid>
                         <Grid.RenderTransform>
-                            <RotateTransform/>
+                            <RotateTransform CenterX="13.5" CenterY="13.5" Angle="{Binding Angle}"/>
                         </Grid.RenderTransform>
                         <Ellipse Fill="White" MinWidth="4" MinHeight="4" MaxHeight="4" MaxWidth="4" HorizontalAlignment="Right" Margin="0,0,3,0"/>
 
