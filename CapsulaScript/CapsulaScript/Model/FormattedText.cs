@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace CapsulaScript.Model
 {
@@ -90,6 +91,34 @@ namespace CapsulaScript.Model
                 fw.Word = $"{splitted.Trim()} ";
                 Words.Add(fw);
             }
+            Console.WriteLine(Text);
+        }
+        public void InvertText(TextBox tc)
+        {
+            //Words = new ObservableCollection<FormattedWord>(Words.Reverse());
+            if (Text == null) return;
+            Text = Regex.Replace(Text, @"\s+", " ");
+            List<string> strList = Text.Split(new char[] { ' ' }).ToList();
+            Words.Clear();
+            string str = "";
+
+            for (int i = strList.Count - 1; i > -1; i--)
+            {
+                FormattedWord fw = new FormattedWord();
+                fw.Word = $"{strList[i].Trim()} ";
+
+                if (i == 0)
+                {
+                    str += strList[i].Trim();
+                }
+                else
+                {
+                    str += strList[i].Trim() + " ";
+                }
+
+                Words.Add(fw);
+            }
+            tc.Text = str;
         }
     }
 }
