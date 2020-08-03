@@ -11,6 +11,6 @@
         
     </Window.Resources>
     <Grid>
-        <view:InputView/>
+        <view:InputView Loaded="InputView_Loaded"/>
     </Grid>
 </Window>

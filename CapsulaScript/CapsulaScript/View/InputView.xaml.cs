@@ -42,7 +42,7 @@ namespace CapsulaScript.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            Globals.FormattedText.InvertText(TextCanvas);
         }
     }
 }

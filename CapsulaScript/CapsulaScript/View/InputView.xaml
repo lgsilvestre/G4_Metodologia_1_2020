@@ -222,7 +222,7 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
+                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
