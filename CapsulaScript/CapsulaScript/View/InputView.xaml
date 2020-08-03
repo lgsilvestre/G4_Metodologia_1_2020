@@ -181,7 +181,7 @@
                         <Grid.RenderTransform>
                             <RotateTransform/>
                         </Grid.RenderTransform>
-                        <Ellipse Fill="White" MaxWidth="2" MaxHeight="2" HorizontalAlignment="Right"/>
+                        <Ellipse Fill="White" MinWidth="4" MinHeight="4" MaxHeight="4" MaxWidth="4" HorizontalAlignment="Right" Margin="0,0,3,0"/>
 
                     </Grid>
                 </Grid>
@@ -232,7 +232,7 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox Name="inputTextBox" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="inputTextBox_TextChanged">
+                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" ToolTip ="Ingresar carácter válido">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
