@@ -151,7 +151,7 @@
     </UserControl.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Background="#144b93">
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 10">
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 5">
                 <TextBlock Text="Expresiones:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
                 <TextBox DockPanel.Dock="Left" Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
@@ -163,21 +163,20 @@
                     </TextBox.Text>
                 </TextBox>
             </DockPanel>
-
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 10">
-                <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 15">
+                <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White" VerticalAlignment="Center"/>
 
                 <Button Content="-" DockPanel.Dock="Left"
-                VerticalAlignment="Top"  HorizontalAlignment="Left"
+                VerticalAlignment="Center"  HorizontalAlignment="Left"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
 
-                <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
-                <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 <TextBox MinWidth="50" DockPanel.Dock="Left"
-                         HorizontalAlignment="Left" 
+                         HorizontalAlignment="Left"  VerticalAlignment="Center"
                          Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
                         <Binding Path="Rotation" UpdateSourceTrigger="PropertyChanged">
@@ -188,10 +187,10 @@
                     </TextBox.Text>
                 </TextBox>
 
-                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 <TextBox DockPanel.Dock="Left"
-                         HorizontalAlignment="Left" 
+                         HorizontalAlignment="Left"  VerticalAlignment="Center"
                          MinWidth="70"
                          Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
@@ -204,12 +203,12 @@
                 </TextBox>
 
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
-                VerticalAlignment="Top"  HorizontalAlignment="Right"
+                VerticalAlignment="Center"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click"/>
 
                 <Button Content="Invertir palabra" DockPanel.Dock="Right" Margin="10, 0, 10, 0"
-                VerticalAlignment="Top"  HorizontalAlignment="Right"
+                VerticalAlignment="Center"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click_1"/>
             </DockPanel>
