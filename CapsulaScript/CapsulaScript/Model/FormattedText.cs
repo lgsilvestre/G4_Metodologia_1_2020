@@ -91,5 +91,9 @@ namespace CapsulaScript.Model
                 Words.Add(fw);
             }
         }
+        public void InvertText()
+        {
+           
+        }
     }
 }
