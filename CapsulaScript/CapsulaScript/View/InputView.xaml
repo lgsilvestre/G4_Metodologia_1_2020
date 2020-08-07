@@ -174,8 +174,8 @@
                 <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 
-                <Grid Margin="10, 0, 10, 0" MinWidth="30">
-                    <local:Dial x:Name="Dial"/>
+                <Grid Margin="10, 5, 10, 0" MinWidth="30">
+                    <Slider x:Name="Rotation" Minimum="0" Maximum="359" Width="90" TickFrequency="1"/>
                 </Grid>
 
                 <TextBox MinWidth="50" DockPanel.Dock="Left"

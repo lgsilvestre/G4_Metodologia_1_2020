@@ -72,9 +72,6 @@
     <Compile Include="View\CanvasView.xaml.cs">
       <DependentUpon>CanvasView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Dial.xaml.cs">
-      <DependentUpon>Dial.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\InputView.xaml.cs">
       <DependentUpon>InputView.xaml</DependentUpon>
     </Compile>
@@ -91,10 +88,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\CanvasView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Dial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
