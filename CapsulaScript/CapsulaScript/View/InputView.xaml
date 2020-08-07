@@ -173,27 +173,22 @@
 
                 <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
-                <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
-                <Grid Margin="10, 0, 10, 0" MinWidth="30">
-                    <Ellipse Fill="#2E99F7" MaxWidth="28" MaxHeight="30"/>
-                    <Grid>
-                        <Grid.RenderTransform>
-                            <RotateTransform CenterX="13.5" CenterY="13.5" Angle="{Binding Angle}"/>
-                        </Grid.RenderTransform>
-                        <Ellipse Fill="White" MinWidth="4" MinHeight="4" MaxHeight="4" MaxWidth="4" HorizontalAlignment="Right" Margin="0,0,3,0"/>
-
-                    </Grid>
+                
+                <Grid Margin="10, 5, 10, 0" MinWidth="30">
+                    <Slider x:Name="slider" Minimum="0" Maximum="359" Width="90" TickFrequency="1" IsSnapToTickEnabled="True" Margin="-1,0,0.6,0"/>
                 </Grid>
 
                 <TextBox MinWidth="50" DockPanel.Dock="Left"
                          HorizontalAlignment="Left"  VerticalAlignment="Center"
-                         Style="{DynamicResource formatotextbox1}">
+                         Style="{DynamicResource formatotextbox1}" >
                     <TextBox.Text>
-                        <Binding Path="Rotation" UpdateSourceTrigger="PropertyChanged">
+                        <Binding ElementName="slider"  Path="Value" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <valrules:RotationValidator/>
                             </Binding.ValidationRules>
+                            
                         </Binding>
+                        
                     </TextBox.Text>
                 </TextBox>
 
@@ -201,7 +196,7 @@
 
                 <TextBox DockPanel.Dock="Left"
                          HorizontalAlignment="Left"  VerticalAlignment="Center"
-                         MinWidth="70"
+                         MinWidth="50"
                          Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
                         <Binding Path="Coordinate" UpdateSourceTrigger="PropertyChanged">
