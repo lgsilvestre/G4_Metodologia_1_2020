@@ -21,6 +21,9 @@
                  VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>-->
         <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top" 
                       HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ItemsControl.LayoutTransform>
+                <RotateTransform Angle="25"/>
+            </ItemsControl.LayoutTransform>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
