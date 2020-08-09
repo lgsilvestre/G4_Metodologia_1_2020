@@ -10,6 +10,10 @@ namespace CapsulaScript.ViewModel
 {
     public class InputViewModel : ViewModelBase
     {
+        public InputViewModel()
+        {
+            Coordinate = "0,0";
+        }
 
         private string _Input;
         public string Input
@@ -24,15 +28,14 @@ namespace CapsulaScript.ViewModel
             }
         }
 
-        private Double _Rotation;
-        public Double Rotation
+        private int _Rotation;
+        public int Rotation
         {
             get { return _Rotation; }
             set
             {
                 if (_Rotation == value) return;
                 _Rotation = value;
-                Globals.FormattedText.Rotation = value;
                 OnPropertyChanged();
             }
         }

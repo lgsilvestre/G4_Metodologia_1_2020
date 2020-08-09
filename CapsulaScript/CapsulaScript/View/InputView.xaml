@@ -175,14 +175,20 @@
 
                 
                 <Grid Margin="10, 5, 10, 0" MinWidth="30">
-                    <Slider x:Name="slider" Minimum="0" Maximum="359" Width="90" TickFrequency="1" IsSnapToTickEnabled="True" Margin="-1,0,0.6,0"/>
+                    <Slider x:Name="slider" 
+                            Minimum="0" Maximum="359" 
+                            Value="{Binding Rotation}"
+                            TickFrequency="1" 
+                            IsSnapToTickEnabled="True" 
+                            Margin="-1,0,0.6,0"
+                            Width="90"/>
                 </Grid>
 
                 <TextBox MinWidth="50" DockPanel.Dock="Left"
                          HorizontalAlignment="Left"  VerticalAlignment="Center"
                          Style="{DynamicResource formatotextbox1}" >
                     <TextBox.Text>
-                        <Binding ElementName="slider"  Path="Value" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="Rotation" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <valrules:RotationValidator/>
                             </Binding.ValidationRules>
