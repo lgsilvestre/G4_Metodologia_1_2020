@@ -231,22 +231,22 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
+                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" KeyUp="TextCanvas_KeyUp" KeyDown="TextCanvas_KeyDown">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
+                            <!--<Binding.ValidationRules>
                                 <valrules:InputTextValidator/>
-                            </Binding.ValidationRules>
+                            </Binding.ValidationRules>-->
                         </Binding>
                     </TextBox.Text>
-                    <Validation.ErrorTemplate>
+                    <!--<Validation.ErrorTemplate>
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
                                 <TextBlock Text="{Binding /ErrorContent}" Foreground="#fd7200"/>
                             </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
+                        </ControlTemplate>-->
+                    <!--</Validation.ErrorTemplate>-->
                 </TextBox>
             
             </DockPanel>
