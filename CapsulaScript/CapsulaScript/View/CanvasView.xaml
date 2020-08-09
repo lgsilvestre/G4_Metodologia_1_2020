@@ -19,36 +19,41 @@
     <DockPanel Background="White">
         <!--<TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
                  VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>-->
-        <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top" 
+        <Border BorderBrush="LightGray" BorderThickness="1" DockPanel.Dock="Top" 
+                VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border.LayoutTransform>
+                <RotateTransform Angle="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                            AncestorType={x:Type local:InputView}},
+                            Path=DataContext.Rotation}"/>
+            </Border.LayoutTransform>
+            <ItemsControl ItemsSource="{Binding GlobalText.Words}" 
                       HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ItemsControl.LayoutTransform>
-                <RotateTransform Angle="25"/>
-            </ItemsControl.LayoutTransform>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Border BorderBrush="Orange" BorderThickness="1" 
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border BorderBrush="Orange" BorderThickness="1" 
                                 Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
                             AncestorType={x:Type UserControl}},
                             Path=DataContext.ControlPointVisibility}"/>
-                        <TextBlock Text="{Binding Word}" 
+                            <TextBlock Text="{Binding Word}" 
                                FontFamily="Lucida Handwriting"
                                FontSize="{Binding FontSize}"
                                FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
                                FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"
                                TextDecorations="{Binding Underline, Converter={StaticResource BUConverter}}"/>
-                        <Border BorderBrush="Orange" BorderThickness="1" 
+                            <Border BorderBrush="Orange" BorderThickness="1" 
                                 Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
                             AncestorType={x:Type UserControl}},
                             Path=DataContext.ControlPointVisibility}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
     </DockPanel>
 </UserControl>
