@@ -40,19 +40,8 @@ namespace CapsulaScript.Model
 
         private void TokenizeExpression()
         {
-            //List<string> tempTokExp = new List<string>();
             TokenExpression.Clear();
             TokenExpression = Expresion.Split(',').ToList();
-
-            //string[] auxSArray = Expresion.Split(',');
-            //foreach(string s in auxSArray)
-            //    tempTokExp.Add(s);
-            //TokenExpression = tempTokExp;
-        }
-
-        public static List<string> SplitFormat(string format)
-        {
-            return format.Split(new char[] { '+' }).ToList();
         }
     }
 }

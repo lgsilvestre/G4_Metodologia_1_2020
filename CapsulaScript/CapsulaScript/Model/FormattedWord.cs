@@ -10,9 +10,9 @@ namespace CapsulaScript.Model
         public FormattedWord()
         {
             Word = "";
-            FontSize = 14;
+            FontSize = 16;
             FontWeight = "Normal";
-            FontStyle = "Italic";
+            FontStyle = "Normal";
             Underline = false;
         }
 
