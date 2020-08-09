@@ -65,7 +65,6 @@ namespace CapsulaScript.ViewModel
             {
                 if (_TranslationX == value) return;
                 _TranslationX = value;
-                Globals.FormattedText.TranslationX = value;
                 OnPropertyChanged();
             }
         }
@@ -78,7 +77,6 @@ namespace CapsulaScript.ViewModel
             {
                 if (_TranslationY == value) return;
                 _TranslationY = value;
-                Globals.FormattedText.TranslationY = value;
                 OnPropertyChanged();
             }
         }
@@ -92,6 +90,7 @@ namespace CapsulaScript.ViewModel
                 if (_Expresion == value) return;
                 _Expresion = value;
                 Globals.Expression.Expresion = value;
+                Globals.FormattedText.Format();
                 OnPropertyChanged();
             }
         }

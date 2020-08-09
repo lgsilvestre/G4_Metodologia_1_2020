@@ -48,7 +48,7 @@
                                     AncestorType={x:Type UserControl}},
                                     Path=DataContext.ControlPointVisibility}"/>
                         <TextBlock Text="{Binding Word}" 
-                                       FontFamily="Lucida Handwriting"
+                                       FontFamily="Segoe Script"
                                        FontSize="{Binding FontSize}"
                                        FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
                                        FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"

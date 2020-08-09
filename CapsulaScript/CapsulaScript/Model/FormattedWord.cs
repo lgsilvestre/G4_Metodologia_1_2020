@@ -1,5 +1,7 @@
 ﻿using CapsulaScript.MVVMHelpers;
-using System.Windows;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Documents;
 
 namespace CapsulaScript.Model
 {
@@ -9,9 +11,24 @@ namespace CapsulaScript.Model
         {
             Word = "";
             FontSize = 16;
-            FontWeight = "Bold" ;
-            FontStyle = "Italic";
-            Underline = true;
+            FontWeight = "Normal";
+            FontStyle = "Normal";
+            Underline = false;
+        }
+
+        public void ApplyFormat(string format)
+        {
+            List<string> formatList = format.Split(new char[] { '+' }).ToList();
+
+            string search = "N";
+            FontWeight = formatList.Contains(search) ? "Bold" : "Normal";
+
+            search = "K";
+            FontStyle = formatList.Contains(search) ? "Italic" : "Normal";
+
+            search = "S";
+            Underline = formatList.Contains(search);
+            //FontSize = 14;
         }
 
         private string _Word;
