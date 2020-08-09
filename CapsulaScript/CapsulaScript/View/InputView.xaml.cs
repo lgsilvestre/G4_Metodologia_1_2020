@@ -44,5 +44,10 @@ namespace CapsulaScript.View
         {
             Globals.FormattedText.InvertText(TextCanvas);
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            TextCanvas.AppendText("Hola");
+        }
     }
 }
