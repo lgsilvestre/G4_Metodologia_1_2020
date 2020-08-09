@@ -10,6 +10,11 @@ namespace CapsulaScript.ViewModel
 {
     public class InputViewModel : ViewModelBase
     {
+        public InputViewModel()
+        {
+            Coordinate = "0,0";
+        }
+
         private string _Input;
         public string Input
         {
