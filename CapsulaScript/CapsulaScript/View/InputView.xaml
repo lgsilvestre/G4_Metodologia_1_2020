@@ -171,6 +171,11 @@
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
 
+                <Button Content="Test" DockPanel.Dock="Left"
+                VerticalAlignment="Center"  HorizontalAlignment="Left"
+                RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click_2"/>
+
                 <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 
