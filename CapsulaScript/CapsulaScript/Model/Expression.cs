@@ -9,7 +9,10 @@ namespace CapsulaScript.Model
 {
     public class Expression : OnPropertyChangedBase
     {
-
+        public Expression()
+        {
+            TokenExpression = new List<string>();
+        }
         private string _Expresion;
         public string Expresion
         {
@@ -37,11 +40,19 @@ namespace CapsulaScript.Model
 
         private void TokenizeExpression()
         {
-            List<string> tempTokExp = new List<string>();
-            string[] auxSArray = Expresion.Split(',');
-            foreach(string s in auxSArray)
-                tempTokExp.Add(s);
-            TokenExpression = tempTokExp;
+            //List<string> tempTokExp = new List<string>();
+            TokenExpression.Clear();
+            TokenExpression = Expresion.Split(',').ToList();
+
+            //string[] auxSArray = Expresion.Split(',');
+            //foreach(string s in auxSArray)
+            //    tempTokExp.Add(s);
+            //TokenExpression = tempTokExp;
+        }
+
+        public static List<string> SplitFormat(string format)
+        {
+            return format.Split(new char[] { '+' }).ToList();
         }
     }
 }
