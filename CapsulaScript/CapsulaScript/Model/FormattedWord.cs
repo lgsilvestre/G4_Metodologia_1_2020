@@ -12,7 +12,7 @@ namespace CapsulaScript.Model
         public FormattedWord()
         {
             Word = "";
-            FontSize = 16;
+            FontSize = 11;
             FontWeight = "Normal";
             FontStyle = "Normal";
             Underline = false;
@@ -33,10 +33,9 @@ namespace CapsulaScript.Model
 
             string resultString = Regex.Match(format, @"\d+").Value;
             int tempSize;
-            bool ok = Int32.TryParse(resultString, out tempSize);
-            if (ok)
+            if (int.TryParse(resultString, out tempSize))
             {
-                FontSize = Convert.ToInt32(resultString);
+                FontSize = tempSize;
             }
         }
 
