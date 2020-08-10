@@ -28,7 +28,7 @@ namespace CapsulaScript.Validators
         {
             foreach(string s in tempIn.Split(','))
             {
-                if (!new Regex("[^1-4]*[1-4][^1-4]*[1-4][^1-4]*|[^1-4]*").IsMatch(tempIn))
+                if (!new Regex("^([^1-4]*1[1-4][^1-4]*|[^1-4]*)$").IsMatch(s))
                     return false;
             }
             return true;
