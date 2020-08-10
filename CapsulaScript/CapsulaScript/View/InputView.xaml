@@ -165,7 +165,9 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                <Border BorderThickness="4" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
@@ -221,7 +223,9 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                <Border BorderThickness="5" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
@@ -244,7 +248,9 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                <Border BorderThickness="5" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
@@ -281,7 +287,9 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                <Border BorderThickness="4" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="4">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200"  Height="12" VerticalAlignment="Stretch" />
+                                </Border>
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
