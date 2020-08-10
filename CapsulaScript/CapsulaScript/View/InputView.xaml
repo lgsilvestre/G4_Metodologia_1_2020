@@ -256,7 +256,7 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="#fd7200"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
