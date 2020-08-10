@@ -1,6 +1,8 @@
 ﻿using CapsulaScript.MVVMHelpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Documents;
 
 namespace CapsulaScript.Model
@@ -28,7 +30,14 @@ namespace CapsulaScript.Model
 
             search = "S";
             Underline = formatList.Contains(search);
-            //FontSize = 14;
+
+            string resultString = Regex.Match(format, @"\d+").Value;
+            int tempSize;
+            bool ok = Int32.TryParse(resultString, out tempSize);
+            if (ok)
+            {
+                FontSize = Convert.ToInt32(resultString);
+            }
         }
 
         private string _Word;
