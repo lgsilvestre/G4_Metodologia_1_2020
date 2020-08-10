@@ -60,5 +60,33 @@ namespace CapsulaScript.View
                 button.ContextMenu.IsOpen = true;
             }
         }
+        private void Menu_item1(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item2(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item3(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item4(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item5(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item6(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
+        private void Menu_item7(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText(TextCanvas);
+        }
     }
 }
