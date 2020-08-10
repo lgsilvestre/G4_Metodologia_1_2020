@@ -161,6 +161,16 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Border BorderThickness="4" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
             </DockPanel>
             
@@ -173,13 +183,13 @@
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7">
                     <Button.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Abre comilla baja" Icon="«"/>
-                            <MenuItem Header="Cierra comilla baja" Icon="»"/>
-                            <MenuItem Header="Abre comilla alta" Icon="“"/>
-                            <MenuItem Header="Cierra comilla alta" Icon="”" />
-                            <MenuItem Header="Abre comilla simple" Icon="‘"/>
-                            <MenuItem Header="Cierra comilla simple" Icon="’" />
-                            <MenuItem Header="Tres puntos" Icon="..." />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla baja" Icon="   «" Click="Menu_item1" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla baja" Icon="   »" Click="Menu_item2" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla alta" Icon="   “" Click="Menu_item3" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla alta" Icon="   ”" Click="Menu_item4" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla simple" Icon="   '" Click="Menu_item5"/>
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla simple" Icon="   '" Click="Menu_item6" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Tres puntos" Icon="  ..." Click="Menu_item7" />
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
@@ -207,7 +217,18 @@
                             
                         </Binding>
                         
+                        
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Border BorderThickness="5" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
 
                 <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
@@ -223,6 +244,16 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Border BorderThickness="5" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="8">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                                </Border>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
 
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
@@ -256,7 +287,9 @@
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
-                                <TextBlock Text="{Binding /ErrorContent}" Foreground="#fd7200"/>
+                                <Border BorderThickness="4" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="4">
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200"  Height="15" VerticalAlignment="Top" TextWrapping="Wrap" />
+                                </Border>
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>

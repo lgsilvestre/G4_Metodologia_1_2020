@@ -28,7 +28,7 @@ namespace CapsulaScript.Validators
             }
             else
             {
-                return new ValidationResult(false, $"Solo numeros reales");
+                return new ValidationResult(false, $"Solo números reales");
             }
         }
     }
