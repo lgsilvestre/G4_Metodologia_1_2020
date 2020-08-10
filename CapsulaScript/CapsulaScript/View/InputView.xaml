@@ -151,7 +151,7 @@
     </UserControl.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Background="#144b93">
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 10">
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 5">
                 <TextBlock Text="Expresiones:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
                 <TextBox DockPanel.Dock="Left" Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
@@ -163,36 +163,58 @@
                     </TextBox.Text>
                 </TextBox>
             </DockPanel>
+            
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 15">
+                <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White" VerticalAlignment="Center"/>
 
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 10">
-                <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
-
-                <Button Content="-" DockPanel.Dock="Left"
-                VerticalAlignment="Top"  HorizontalAlignment="Left"
+                <Button MouseRightButtonUp="Button_MouseRightButtonUp" PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" Content="-" DockPanel.Dock="Left" 
+                VerticalAlignment="Center"  HorizontalAlignment="Left"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
-                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla baja" Icon="   «" Click="Menu_item1" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla baja" Icon="   »" Click="Menu_item2" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla alta" Icon="   “" Click="Menu_item3" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla alta" Icon="   ”" Click="Menu_item4" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Abre comilla simple" Icon="   '" Click="Menu_item5"/>
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Cierra comilla simple" Icon="   '" Click="Menu_item6" />
+                            <MenuItem Foreground="White" Background="#2E99F7" Header="Tres puntos" Icon="  ..." Click="Menu_item7" />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
-                <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
-
-                <TextBlock Text="-rueda-" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                
+                <Grid Margin="10, 5, 10, 0" MinWidth="30">
+                    <Slider x:Name="slider" 
+                            Minimum="0" Maximum="359" 
+                            Value="{Binding Rotation}"
+                            TickFrequency="1" 
+                            IsSnapToTickEnabled="True" 
+                            Margin="-1,0,0.6,0"
+                            Width="90"/>
+                </Grid>
 
                 <TextBox MinWidth="50" DockPanel.Dock="Left"
-                         HorizontalAlignment="Left" 
-                         Style="{DynamicResource formatotextbox1}">
+                         HorizontalAlignment="Left"  VerticalAlignment="Center"
+                         Style="{DynamicResource formatotextbox1}" >
                     <TextBox.Text>
                         <Binding Path="Rotation" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <valrules:RotationValidator/>
                             </Binding.ValidationRules>
+                            
                         </Binding>
+                        
                     </TextBox.Text>
                 </TextBox>
 
-                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
+                <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 <TextBox DockPanel.Dock="Left"
-                         HorizontalAlignment="Left" 
-                         MinWidth="70"
+                         HorizontalAlignment="Left"  VerticalAlignment="Center"
+                         MinWidth="50"
                          Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
                         <Binding Path="Coordinate" UpdateSourceTrigger="PropertyChanged">
@@ -204,14 +226,14 @@
                 </TextBox>
 
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
-                VerticalAlignment="Top"  HorizontalAlignment="Right"
+                VerticalAlignment="Center"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click"/>
 
                 <Button Content="Invertir palabra" DockPanel.Dock="Right" Margin="10, 0, 10, 0"
-                VerticalAlignment="Top"  HorizontalAlignment="Right"
+                VerticalAlignment="Center"  HorizontalAlignment="Right"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
-                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7" Click="Button_Click_1"/>
             </DockPanel>
 
         </DockPanel>
@@ -222,7 +244,7 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" ToolTip="Ingrese carácteres válidos">
+                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -230,8 +252,16 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="#fd7200"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
-
+            
             </DockPanel>
             <DockPanel DockPanel.Dock="Left" Margin="20">
                 <TextBlock Text="Output:" DockPanel.Dock="Top"
