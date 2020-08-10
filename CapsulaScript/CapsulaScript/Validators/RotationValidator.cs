@@ -14,7 +14,7 @@ namespace CapsulaScript.Validators
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (Regex.IsMatch((string)value, @"^[1-9]\d*$"))
+            if (Regex.IsMatch((string)value, @"^[0-9]\d*$"))
             {
                 int v = Convert.ToInt32(value);
                 if (v >= 0 && v < 360)
