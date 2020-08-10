@@ -16,33 +16,47 @@
         <converters:StringToFontStyleConverter x:Key="FSConverter"/>
         <converters:BoolToUnderlineConverter x:Key="BUConverter"/>
     </UserControl.Resources>
-    <DockPanel Background="White">
-        <!--<TextBox Text="{Binding GlobalText.Text, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" IsReadOnly="True" FontFamily="Lucida Handwriting"
-                 VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>-->
-        <ItemsControl ItemsSource="{Binding GlobalText.Words}" DockPanel.Dock="Top" 
-                      HorizontalAlignment="Center" VerticalAlignment="Center">
+    <DockPanel Background="White" ClipToBounds="True">
+        <ItemsControl ItemsSource="{Binding GlobalText.Words}" 
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      RenderTransformOrigin="0.5,0.5"
+                      >
+            <ItemsControl.LayoutTransform>
+                <RotateTransform Angle="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                             AncestorType={x:Type local:InputView}},
+                                             Path=DataContext.Rotation}"/>
+            </ItemsControl.LayoutTransform>
+            <ItemsControl.RenderTransform>
+                <TranslateTransform X="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                             AncestorType={x:Type local:InputView}},
+                                             Path=DataContext.TranslationX}"
+                                    Y="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                             AncestorType={x:Type local:InputView}},
+                                             Path=DataContext.TranslationY}"/>
+            </ItemsControl.RenderTransform>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel />
+                    <WrapPanel/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Border BorderBrush="Orange" BorderThickness="1" 
-                                Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
-                            AncestorType={x:Type UserControl}},
-                            Path=DataContext.ControlPointVisibility}"/>
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                    AncestorType={x:Type UserControl}},
+                                    Path=DataContext.ControlPointVisibility}"/>
                         <TextBlock Text="{Binding Word}" 
-                               FontFamily="Lucida Handwriting"
-                               FontSize="{Binding FontSize}"
-                               FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
-                               FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"
-                               TextDecorations="{Binding Underline, Converter={StaticResource BUConverter}}"/>
+                                       FontFamily="Segoe Script"
+                                       FontSize="{Binding FontSize}"
+                                       FontWeight="{Binding FontWeight, Converter={StaticResource FWConverter}}"
+                                       FontStyle="{Binding FontStyle, Converter= {StaticResource FSConverter}}"
+                                       TextDecorations="{Binding Underline, Converter={StaticResource BUConverter}}"/>
                         <Border BorderBrush="Orange" BorderThickness="1" 
-                                Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
-                            AncestorType={x:Type UserControl}},
-                            Path=DataContext.ControlPointVisibility}"/>
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                    AncestorType={x:Type UserControl}},
+                                    Path=DataContext.ControlPointVisibility}"/>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
