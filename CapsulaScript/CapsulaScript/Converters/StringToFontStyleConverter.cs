@@ -16,7 +16,7 @@ namespace CapsulaScript.Converters
                     fontSt = FontStyles.Normal;
                     break;
                 case "Italic":
-                    fontSt = FontStyles.Italic;
+                    fontSt = FontStyles.Oblique;
                     break;
                 default:
                     fontSt = FontStyles.Normal;
