@@ -173,10 +173,13 @@
                 Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7">
                     <Button.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="«" Icon="«"/>
-                            <MenuItem Header="»" Icon="»"/>
-                            <MenuItem Header="Menu item 3" Icon="“"/>
-                            <MenuItem Header="Menu item 3" Icon="&quot;" FontSize="16"/>
+                            <MenuItem Header="Abre comilla baja" Icon="«"/>
+                            <MenuItem Header="Cierra comilla baja" Icon="»"/>
+                            <MenuItem Header="Abre comilla alta" Icon="“"/>
+                            <MenuItem Header="Cierra comilla alta" Icon="”" />
+                            <MenuItem Header="Abre comilla simple" Icon="‘"/>
+                            <MenuItem Header="Cierra comilla simple" Icon="’" />
+                            <MenuItem Header="Tres puntos" Icon="..." />
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
