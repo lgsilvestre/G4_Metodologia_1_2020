@@ -20,7 +20,7 @@ namespace CapsulaScript.Validators
             }
             else
             {
-                return new ValidationResult(false, $"Revise el formato de la expresión, sólo 1 tamaño de letra");
+                return new ValidationResult(false, $"Revise el formato de la expresión, sólo 1 tamaño de letra por palabra");
             }
         }
 
