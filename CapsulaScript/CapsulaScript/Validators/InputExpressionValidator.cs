@@ -20,12 +20,17 @@ namespace CapsulaScript.Validators
             }
             else
             {
-                return new ValidationResult(false, $"Revise el formato de la expresión");
+                return new ValidationResult(false, $"Revise el formato de la expresión, sólo 1 tamaño de letra");
             }
         }
 
         private bool ValidatePassedInput(string tempIn)
         {
+            foreach(string s in tempIn.Split(','))
+            {
+                if (!new Regex("[^1-4]*[1-4][^1-4]*[1-4][^1-4]*|[^1-4]*").IsMatch(tempIn))
+                    return false;
+            }
             return true;
         }
     }
