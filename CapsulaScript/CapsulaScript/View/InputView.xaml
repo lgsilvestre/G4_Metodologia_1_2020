@@ -288,7 +288,7 @@
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
                                 <Border BorderThickness="4" BorderBrush="#fd7200" Background="#fd7200" CornerRadius="4">
-                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200"  Height="12" VerticalAlignment="Stretch" />
+                                    <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200"  Height="15" VerticalAlignment="Top" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
                         </ControlTemplate>
