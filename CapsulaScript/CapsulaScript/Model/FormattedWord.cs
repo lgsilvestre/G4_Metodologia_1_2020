@@ -1,6 +1,8 @@
 ﻿using CapsulaScript.MVVMHelpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Documents;
 
 namespace CapsulaScript.Model
@@ -10,7 +12,7 @@ namespace CapsulaScript.Model
         public FormattedWord()
         {
             Word = "";
-            FontSize = 16;
+            FontSize = 11;
             FontWeight = "Normal";
             FontStyle = "Normal";
             Underline = false;
@@ -28,7 +30,13 @@ namespace CapsulaScript.Model
 
             search = "S";
             Underline = formatList.Contains(search);
-            //FontSize = 14;
+
+            string resultString = Regex.Match(format, @"\d+").Value;
+            int tempSize;
+            if (int.TryParse(resultString, out tempSize))
+            {
+                FontSize = tempSize;
+            }
         }
 
         private string _Word;
