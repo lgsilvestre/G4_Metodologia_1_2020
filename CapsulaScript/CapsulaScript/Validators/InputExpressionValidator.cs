@@ -13,14 +13,25 @@ namespace CapsulaScript.Validators
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (Regex.IsMatch((string)value, @"^((([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?(,(([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?)*)?$"))
+            string tempInStr = (string)value;
+            if ((Regex.IsMatch(tempInStr, @"^((([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?(,(([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?)*)?$")) && ValidatePassedInput(tempInStr))
             {
                 return ValidationResult.ValidResult;
             }
             else
             {
-                return new ValidationResult(false, $"Revise el formato de la expresión");
+                return new ValidationResult(false, $"Revise el formato de la expresión, sólo 1 tamaño de letra por palabra");
             }
+        }
+
+        private bool ValidatePassedInput(string tempIn)
+        {
+            foreach(string s in tempIn.Split(','))
+            {
+                if (!new Regex("^([^1-4]*1[1-4][^1-4]*|[^1-4]*)$").IsMatch(s))
+                    return false;
+            }
+            return true;
         }
     }
 }
