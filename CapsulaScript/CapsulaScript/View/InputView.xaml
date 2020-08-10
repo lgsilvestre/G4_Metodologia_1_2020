@@ -161,6 +161,14 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
             </DockPanel>
             
@@ -207,7 +215,16 @@
                             
                         </Binding>
                         
+                        
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
 
                 <TextBlock Text="Traslación (X, Y):" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
@@ -223,6 +240,14 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
                 </TextBox>
 
                 <Button Content="Puntos de Control" DockPanel.Dock="Right" 
