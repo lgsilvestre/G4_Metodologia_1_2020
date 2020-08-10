@@ -163,14 +163,26 @@
                     </TextBox.Text>
                 </TextBox>
             </DockPanel>
+            
             <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 15">
                 <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White" VerticalAlignment="Center"/>
 
-                <Button Content="-" DockPanel.Dock="Left"
+                <Button MouseRightButtonUp="Button_MouseRightButtonUp" PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" Content="-" DockPanel.Dock="Left" 
                 VerticalAlignment="Center"  HorizontalAlignment="Left"
                 RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Style="{DynamicResource Estiloboton}" 
-                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7"/>
-
+                Foreground="White" Background="#2E99F7" BorderBrush="#2E99F7">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Abre comilla baja" Icon="«"/>
+                            <MenuItem Header="Cierra comilla baja" Icon="»"/>
+                            <MenuItem Header="Abre comilla alta" Icon="“"/>
+                            <MenuItem Header="Cierra comilla alta" Icon="”" />
+                            <MenuItem Header="Abre comilla simple" Icon="‘"/>
+                            <MenuItem Header="Cierra comilla simple" Icon="’" />
+                            <MenuItem Header="Tres puntos" Icon="..." />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
                 <TextBlock Text="Rotar:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"  VerticalAlignment="Center"/>
 
                 
