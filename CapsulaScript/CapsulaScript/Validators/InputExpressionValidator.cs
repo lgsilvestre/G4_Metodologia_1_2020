@@ -13,7 +13,8 @@ namespace CapsulaScript.Validators
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (Regex.IsMatch((string)value, @"^((([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?(,(([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?)*)?$"))
+            string tempInStr = (string)value;
+            if (Regex.IsMatch(tempInStr, @"^((([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?(,(([KNS]|1[1-4])(\+([KNS]|1[1-4]))*)?)*)?$"))
             {
                 return ValidationResult.ValidResult;
             }
