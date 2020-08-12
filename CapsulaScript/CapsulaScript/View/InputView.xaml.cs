@@ -42,7 +42,7 @@ namespace CapsulaScript.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
 
         private void Button_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
@@ -62,31 +62,31 @@ namespace CapsulaScript.View
         }
         private void Menu_item1(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item2(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item3(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item4(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item5(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item6(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
         private void Menu_item7(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
         }
     }
 }

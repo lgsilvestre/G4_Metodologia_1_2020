@@ -68,7 +68,7 @@ namespace CapsulaScript.Model
             }
         }
 
-        public void InvertText(TextBox tc)
+        public void InvertText()
         {
             Words = new ObservableCollection<FormattedWord>(Words.Reverse());
         }
