@@ -275,7 +275,7 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
+                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -300,7 +300,7 @@
                 <TextBlock Text="Output:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top"/>
+                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top" SizeChanged="canvas_SizeChanged"/>
             </DockPanel>
 
         </DockPanel>
