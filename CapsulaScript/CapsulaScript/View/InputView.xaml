@@ -300,7 +300,7 @@
                 <TextBlock Text="Output:" DockPanel.Dock="Top"
                            HorizontalAlignment="Left"
                            Foreground="White"/>
-                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top"/>
+                <local:CanvasView x:Name="canvas" DockPanel.Dock="Top" SizeChanged="canvas_SizeChanged"/>
             </DockPanel>
 
         </DockPanel>

@@ -88,5 +88,11 @@ namespace CapsulaScript.View
         {
             Globals.FormattedText.InvertText();
         }
+
+        private void canvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Globals.canvasWidth = canvas.ActualWidth;
+            Globals.canvasHeight = canvas.ActualHeight;
+        }
     }
 }
