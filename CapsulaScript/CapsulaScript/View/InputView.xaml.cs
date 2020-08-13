@@ -47,7 +47,57 @@ namespace CapsulaScript.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText(TextCanvas);
+            Globals.FormattedText.InvertText();
+        }
+
+        private void Button_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                // Why is button.ContextMenu.DataContext null? ... when right click is O.K. but leftdown is N.G.
+                button.ContextMenu.DataContext = button.DataContext;
+                button.ContextMenu.IsOpen = true;
+            }
+        }
+        private void Menu_item1(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item2(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item3(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item4(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item5(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item6(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+        private void Menu_item7(object sender, RoutedEventArgs e)
+        {
+            Globals.FormattedText.InvertText();
+        }
+
+        private void canvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Globals.canvasWidth = canvas.ActualWidth;
+            Globals.canvasHeight = canvas.ActualHeight;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
