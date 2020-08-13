@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapsulaScript.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -17,12 +18,24 @@ namespace CapsulaScript.Validators
             var match = regex.Match((string)value);
             if (match.Success)
             {
+                if (!IsInsideCanvas(value))
+                {
+                    return new ValidationResult(false, $"El centro de las palabras sale del canvas");
+                }
+
                 return ValidationResult.ValidResult;
             }
             else
             {
                 return new ValidationResult(false, $"Respetar formato X,Y");
             }
+        }
+        private bool IsInsideCanvas(object value)
+        {
+            double x = Convert.ToDouble(((string)value).Split(',')[0]);
+            double y = Convert.ToDouble(((string)value).Split(',')[1]);
+            if (x < Globals.canvasWidth/2 && y < Globals.canvasHeight/2) return true;
+            return false;
         }
     }
 }

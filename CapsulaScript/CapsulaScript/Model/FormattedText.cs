@@ -14,7 +14,8 @@ namespace CapsulaScript.Model
     {
         public FormattedText()
         {
-            Words = new ObservableCollection<FormattedWord>();                
+            _Text = "";
+            Words = new ObservableCollection<FormattedWord>();
         }
 
         private string _Text;
@@ -25,44 +26,7 @@ namespace CapsulaScript.Model
             {
                 if (_Text == value) return;
                 _Text = value;
-                SplitText();
-                OnPropertyChanged();
-            }
-        }
-
-
-        private Double _Rotation;
-        public Double Rotation
-        {
-            get { return _Rotation; }
-            set
-            {
-                if (_Rotation == value) return;
-                _Rotation = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _TranslationX;
-        public int TranslationX
-        {
-            get { return _TranslationX; }
-            set
-            {
-                if (_TranslationX == value) return;
-                _TranslationX = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _TranslationY;
-        public int TranslationY
-        {
-            get { return _TranslationY; }
-            set
-            {
-                if (_TranslationY == value) return;
-                _TranslationY = value;
+                Format();
                 OnPropertyChanged();
             }
         }
@@ -79,46 +43,34 @@ namespace CapsulaScript.Model
             }
         }
 
-        private void SplitText()
+        public void Format()
         {
             Text = Regex.Replace(Text, @"\s+", " ");
-            List<string> strList = Text.Split(new char[] { ' ' }).ToList();
+            string[] strList = Text.Split(new char[] { ' ' });
             Words.Clear();
+            List<string> exp = Globals.Expression.TokenExpression;
             foreach (string splitted in strList)
             {
-                //TO DO applicar formato aca en el constructor de FormattedWord
-                FormattedWord fw = new FormattedWord();
-                fw.Word = $"{splitted.Trim()} ";
+                FormattedWord fw = new FormattedWord
+                {
+                    Word = $"{splitted.Trim()} "
+                };
                 Words.Add(fw);
             }
-            Console.WriteLine(Text);
-        }
-        public void InvertText(TextBox tc)
-        {
-            //Words = new ObservableCollection<FormattedWord>(Words.Reverse());
-            if (Text == null) return;
-            Text = Regex.Replace(Text, @"\s+", " ");
-            List<string> strList = Text.Split(new char[] { ' ' }).ToList();
-            Words.Clear();
-            string str = "";
-
-            for (int i = strList.Count - 1; i > -1; i--)
+            for (int i = 0; i < exp.Count; i++)
             {
-                FormattedWord fw = new FormattedWord();
-                fw.Word = $"{strList[i].Trim()} ";
-
-                if (i == 0)
+                if (i < Words.Count)
                 {
-                    str += strList[i].Trim();
+                    FormattedWord fw = Words.ElementAt(i);
+                    string xp = exp.ElementAt(i);
+                    fw.ApplyFormat(xp);
                 }
-                else
-                {
-                    str += strList[i].Trim() + " ";
-                }
-
-                Words.Add(fw);
             }
-            tc.Text = str;
+        }
+
+        public void InvertText()
+        {
+            Words = new ObservableCollection<FormattedWord>(Words.Reverse());
         }
     }
 }
