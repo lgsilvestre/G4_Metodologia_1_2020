@@ -275,7 +275,7 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" KeyDown="TextCanvas_KeyDown">
+                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" KeyDown="TextCanvas_KeyDown" KeyUp="TextCanvas_KeyUp">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
                             <!--<Binding.ValidationRules>
