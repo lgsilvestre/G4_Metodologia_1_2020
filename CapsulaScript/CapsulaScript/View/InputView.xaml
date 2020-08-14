@@ -151,7 +151,7 @@
     </UserControl.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Background="#144b93">
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 5">
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 16">
                 <TextBlock Text="Expresiones:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White"/>
                 <TextBox DockPanel.Dock="Left" Style="{DynamicResource formatotextbox1}">
                     <TextBox.Text>
@@ -174,7 +174,7 @@
                 </TextBox>
             </DockPanel>
             
-            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 15">
+            <DockPanel DockPanel.Dock="Top" Margin="20, 10, 20, 21">
                 <TextBlock Text="Símbolos:" DockPanel.Dock="Left" Margin="10, 0, 10, 0" Foreground="White" VerticalAlignment="Center"/>
 
                 <Button MouseRightButtonUp="Button_MouseRightButtonUp" PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" Content="-" DockPanel.Dock="Left" 
@@ -275,15 +275,15 @@
                            HorizontalAlignment="Left"
                            Foreground="White"/>
 
-                <TextBox DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True">
+                <TextBox x:Name="TextCanvas" DockPanel.Dock="Top" Width="200" TextWrapping="Wrap" AcceptsReturn="True" KeyUp="TextCanvas_KeyUp" KeyDown="TextCanvas_KeyDown">
                     <TextBox.Text>
                         <Binding Path="Input" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
+                            <!--<Binding.ValidationRules>
                                 <valrules:InputTextValidator/>
-                            </Binding.ValidationRules>
+                            </Binding.ValidationRules>-->
                         </Binding>
                     </TextBox.Text>
-                    <Validation.ErrorTemplate>
+                    <!--<Validation.ErrorTemplate>
                         <ControlTemplate>
                             <StackPanel>
                                 <AdornedElementPlaceholder x:Name="textBox"/>
@@ -291,8 +291,8 @@
                                     <TextBlock Text="{Binding /ErrorContent}" Foreground="Black" Background="#fd7200"  Height="15" VerticalAlignment="Top" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
+                        </ControlTemplate>-->
+                    <!--</Validation.ErrorTemplate>-->
                 </TextBox>
             
             </DockPanel>
