@@ -14,7 +14,7 @@ namespace CapsulaScript.Validators
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string tempInStr = (string)value;
-            if ((Regex.IsMatch(tempInStr, @"^((([KNS]|[1-9][1-9])(\+([KNS]|[1-9][1-9]))*)?(,(([KNS]|[1-9][1-9])(\+([KNS]|[1-9][1-9]))*)?)*)?$")) && ValidatePassedInput(tempInStr))
+            if ((Regex.IsMatch(tempInStr, @"^((([kns]|[1-9][1-9])(\+([kns]|[1-9][1-9]))*)?(,(([kns]|[1-9][1-9])(\+([kns]|[1-9][1-9]))*)?)*)?$")) && ValidatePassedInput(tempInStr))
             {
                 return ValidationResult.ValidResult;
             }
