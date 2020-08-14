@@ -22,13 +22,13 @@ namespace CapsulaScript.Model
         {
             List<string> formatList = format.Split(new char[] { '+' }).ToList();
 
-            string search = "N";
+            string search = "n";
             FontWeight = formatList.Contains(search) ? "Bold" : "Normal";
 
-            search = "K";
+            search = "k";
             FontStyle = formatList.Contains(search) ? "Italic" : "Normal";
 
-            search = "S";
+            search = "s";
             Underline = formatList.Contains(search);
 
             string resultString = Regex.Match(format, @"\d+").Value;
