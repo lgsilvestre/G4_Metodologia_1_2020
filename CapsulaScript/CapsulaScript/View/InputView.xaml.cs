@@ -107,55 +107,105 @@ namespace CapsulaScript.View
             Globals.canvasHeight = canvas.ActualHeight;
         }
 
-        private void TextCanvas_KeyUp(object sender, KeyEventArgs e)
-        {
-            int caretIndex = (sender as TextBox).CaretIndex;
-            //Console.WriteLine(caretIndex);
-            if (caretIndex > 0)
-            {
-                //Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
-                char newChar = (sender as TextBox).Text[caretIndex - 1];
-                if (!(Char.IsLetter(newChar) || Char.IsWhiteSpace(newChar)))
-                {
-                    (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
-                    (sender as TextBox).CaretIndex = caretIndex - 1;
-                }
-            }
-        }
+        //private void TextCanvas_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    int caretIndex = (sender as TextBox).CaretIndex;
+        //    //Console.WriteLine(caretIndex);
+        //    if (caretIndex > 0)
+        //    {
+        //        //Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
+        //        char newChar = (sender as TextBox).Text[caretIndex - 1];
+        //        if (!(Char.IsLetter(newChar) || Char.IsWhiteSpace(newChar)))
+        //        {
+        //            (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
+        //            (sender as TextBox).CaretIndex = caretIndex - 1;
+        //        }
+        //    }
+        //}
+
+        //private void TextCanvas_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    int caretIndex = (sender as TextBox).CaretIndex;
+        //    Console.WriteLine(caretIndex);
+        //    if (caretIndex > 0)
+        //    {
+        //        Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
+        //        char prevChar = (sender as TextBox).Text[caretIndex - 1];
+        //        if (!(Char.IsLetter(prevChar) || Char.IsWhiteSpace(prevChar)))
+        //        {
+        //            if((sender as TextBox).Text.Length != caretIndex || !SPFlag)
+        //            {
+        //                (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
+        //                (sender as TextBox).CaretIndex = caretIndex - 1;
+        //            }
+        //            SPFlag = false;
+        //        }
+        //    }
+        //}
 
         private void TextCanvas_KeyDown(object sender, KeyEventArgs e)
         {
-            int caretIndex = (sender as TextBox).CaretIndex;
-            Console.WriteLine(caretIndex);
-            if (caretIndex > 0)
-            {
-                Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
-                char prevChar = (sender as TextBox).Text[caretIndex - 1];
-                if (!(Char.IsLetter(prevChar) || Char.IsWhiteSpace(prevChar)))
-                {
-                    if((sender as TextBox).Text.Length != caretIndex || !SPFlag)
-                    {
-                        (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
-                        (sender as TextBox).CaretIndex = caretIndex - 1;
-                    }
-                    SPFlag = false;
-                }
-            }
+            if (!IsValidKey(e))
+                e.Handled = true;
         }
 
-        private bool IsValidSPChar(char character)
+        private bool IsValidKey(KeyEventArgs e)
         {
-            switch (character)
+            switch (e.Key)
             {
-                case '«':
+                case Key.Q:
                     return true;
-                case '»':
+                case Key.W:
                     return true;
-                case '“':
+                case Key.E:
                     return true;
-                case '”':
+                case Key.R:
                     return true;
-                case '.':
+                case Key.T:
+                    return true;
+                case Key.Y:
+                    return true;
+                case Key.U:
+                    return true;
+                case Key.I:
+                    return true;
+                case Key.O:
+                    return true;
+                case Key.P:
+                    return true;
+                case Key.A:
+                    return true;
+                case Key.S:
+                    return true;
+                case Key.D:
+                    return true;
+                case Key.F:
+                    return true;
+                case Key.G:
+                    return true;
+                case Key.H:
+                    return true;
+                case Key.J:
+                    return true;
+                case Key.K:
+                    return true;
+                case Key.L:
+                    return true;
+                case Key.Oem3:
+                    return true;
+                case Key.Z:
+                    return true;
+                case Key.X:
+                    return true;
+                case Key.C:
+                    return true;
+                case Key.V:
+                    return true;
+                case Key.B:
+                    return true;
+                case Key.N:
+                    return true;
+                case Key.M:
                     return true;
                 default:
                     return false;
