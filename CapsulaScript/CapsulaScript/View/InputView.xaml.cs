@@ -67,43 +67,44 @@ namespace CapsulaScript.View
         }
         private void Menu_item1(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("«");
         }
         private void Menu_item2(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("»");
         }
         private void Menu_item3(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("“");
         }
         private void Menu_item4(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("”");
         }
         private void Menu_item5(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("'");
         }
         private void Menu_item6(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("'");
         }
         private void Menu_item7(object sender, RoutedEventArgs e)
         {
-            Globals.FormattedText.InvertText();
+            AppendStringToInput("...");
+        }
+
+        private void AppendStringToInput(string str)
+        {
+            TextCanvas.AppendText(str);
+            TextCanvas.CaretIndex += str.Length;
+            SPFlag = true;
         }
 
         private void canvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Globals.canvasWidth = canvas.ActualWidth;
             Globals.canvasHeight = canvas.ActualHeight;
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            TextCanvas.AppendText(",");
-            SPFlag = true;
         }
 
         private void TextCanvas_KeyUp(object sender, KeyEventArgs e)
