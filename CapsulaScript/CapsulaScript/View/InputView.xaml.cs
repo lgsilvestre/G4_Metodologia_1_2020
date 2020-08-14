@@ -107,46 +107,21 @@ namespace CapsulaScript.View
             Globals.canvasHeight = canvas.ActualHeight;
         }
 
-        //private void TextCanvas_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    int caretIndex = (sender as TextBox).CaretIndex;
-        //    //Console.WriteLine(caretIndex);
-        //    if (caretIndex > 0)
-        //    {
-        //        //Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
-        //        char newChar = (sender as TextBox).Text[caretIndex - 1];
-        //        if (!(Char.IsLetter(newChar) || Char.IsWhiteSpace(newChar)))
-        //        {
-        //            (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
-        //            (sender as TextBox).CaretIndex = caretIndex - 1;
-        //        }
-        //    }
-        //}
-
-        //private void TextCanvas_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    int caretIndex = (sender as TextBox).CaretIndex;
-        //    Console.WriteLine(caretIndex);
-        //    if (caretIndex > 0)
-        //    {
-        //        Console.WriteLine((sender as TextBox).Text[caretIndex - 1]);
-        //        char prevChar = (sender as TextBox).Text[caretIndex - 1];
-        //        if (!(Char.IsLetter(prevChar) || Char.IsWhiteSpace(prevChar)))
-        //        {
-        //            if((sender as TextBox).Text.Length != caretIndex || !SPFlag)
-        //            {
-        //                (sender as TextBox).Text = (sender as TextBox).Text.Remove(caretIndex - 1, 1);
-        //                (sender as TextBox).CaretIndex = caretIndex - 1;
-        //            }
-        //            SPFlag = false;
-        //        }
-        //    }
-        //}
-
         private void TextCanvas_KeyDown(object sender, KeyEventArgs e)
         {
             if (!IsValidKey(e))
                 e.Handled = true;
+        }
+
+        private void TextCanvas_KeyUp(object sender, KeyEventArgs e)
+        {
+            string text = (sender as TextBox).Text;
+            if (text.Contains("´"))
+            {
+                text = text.Replace("´", "");
+                (sender as TextBox).Text = text;
+                (sender as TextBox).CaretIndex = text.Length;
+            }
         }
 
         private bool IsValidKey(KeyEventArgs e)
@@ -207,9 +182,15 @@ namespace CapsulaScript.View
                     return true;
                 case Key.M:
                     return true;
+                case Key.Oem1:
+                    return true;
+                case Key.DeadCharProcessed:
+                    return true;
                 default:
                     return false;
             }
         }
+
+        
     }
 }
