@@ -2,13 +2,42 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Windows.Documents;
 
 namespace CapsulaScript.Model
 {
     public class FormattedWord : OnPropertyChangedBase
     {
+        public FormattedWord()
+        {
+            Word = "";
+            FontSize = 11;
+            FontWeight = "Normal";
+            FontStyle = "Normal";
+            Underline = false;
+        }
+
+        public void ApplyFormat(string format)
+        {
+            List<string> formatList = format.Split(new char[] { '+' }).ToList();
+
+            string search = "n";
+            FontWeight = formatList.Contains(search) ? "Bold" : "Normal";
+
+            search = "k";
+            FontStyle = formatList.Contains(search) ? "Italic" : "Normal";
+
+            search = "s";
+            Underline = formatList.Contains(search);
+
+            string resultString = Regex.Match(format, @"\d+").Value;
+            int tempSize;
+            if (int.TryParse(resultString, out tempSize))
+            {
+                FontSize = tempSize;
+            }
+        }
 
         private string _Word;
         public string Word

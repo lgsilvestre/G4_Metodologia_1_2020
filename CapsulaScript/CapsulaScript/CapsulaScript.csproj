@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,10 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToUnderlineConverter.cs" />
+    <Compile Include="Converters\StringToFontStyleConverter.cs" />
+    <Compile Include="Converters\StringToFontWeightConverter.cs" />
     <Compile Include="Model\Expression.cs" />
     <Compile Include="Model\FormattedText.cs" />
     <Compile Include="Model\FormattedWord.cs" />
     <Compile Include="Model\Globals.cs" />
+    <Compile Include="Validators\InputExpressionValidator.cs" />
+    <Compile Include="Validators\InputTextValidator.cs" />
+    <Compile Include="Validators\RotationValidator.cs" />
+    <Compile Include="Validators\TranslationValidator.cs" />
     <Compile Include="ViewModel\CanvasViewModel.cs" />
     <Compile Include="ViewModel\InputViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
@@ -117,6 +127,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="logo_capsula.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

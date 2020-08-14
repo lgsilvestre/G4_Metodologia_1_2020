@@ -13,6 +13,7 @@ namespace CapsulaScript.ViewModel
         public CanvasViewModel()
         {
             GlobalText = Globals.FormattedText;
+            ControlPointVisibility = Visibility.Collapsed;
         }
 
         private FormattedText _globalText;
@@ -27,26 +28,14 @@ namespace CapsulaScript.ViewModel
             }
         }
 
-        private List<FormattedWord> _Words;
-        public List<FormattedWord> Words
+        private Visibility _ControlPintVisibility;
+        public Visibility ControlPointVisibility
         {
-            get { return _Words; }
+            get { return _ControlPintVisibility; }
             set
             {
-                if (_Words == value) return;
-                _Words = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private Visibility _PlaceHolder;
-        public Visibility PlaceHolder
-        {
-            get { return _PlaceHolder; }
-            set
-            {
-                if (_PlaceHolder == value) return;
-                _PlaceHolder = value;
+                if (_ControlPintVisibility == value) return;
+                _ControlPintVisibility = value;
                 OnPropertyChanged();
             }
         }

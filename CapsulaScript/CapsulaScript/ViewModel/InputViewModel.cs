@@ -3,12 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CapsulaScript.ViewModel
 {
     public class InputViewModel : ViewModelBase
     {
+        public InputViewModel()
+        {
+            Coordinate = "0,0";
+        }
 
         private string _Input;
         public string Input
@@ -23,14 +28,31 @@ namespace CapsulaScript.ViewModel
             }
         }
 
-        private Double _Rotation;
-        public Double Rotation
+        private int _Rotation;
+        public int Rotation
         {
             get { return _Rotation; }
             set
             {
                 if (_Rotation == value) return;
                 _Rotation = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _Coordinate;
+        public string Coordinate
+        {
+            get { return _Coordinate; }
+            set
+            {
+                if (_Coordinate == value) return;
+                _Coordinate = value;
+                string[] strList = Coordinate.Split(new char[] { ',' });
+                TranslationX = Int32.Parse(strList[0]);
+                TranslationY = Int32.Parse(strList[1]);
+                Console.WriteLine();
                 OnPropertyChanged();
             }
         }
@@ -55,6 +77,20 @@ namespace CapsulaScript.ViewModel
             {
                 if (_TranslationY == value) return;
                 _TranslationY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _Expresion;
+        public string Expresion
+        {
+            get { return _Expresion; }
+            set
+            {
+                if (_Expresion == value) return;
+                _Expresion = value;
+                Globals.Expression.Expresion = value;
+                Globals.FormattedText.Format();
                 OnPropertyChanged();
             }
         }

@@ -1,14 +1,22 @@
 ﻿using CapsulaScript.MVVMHelpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace CapsulaScript.Model
 {
     public class FormattedText : OnPropertyChangedBase
     {
+        public FormattedText()
+        {
+            _Text = "";
+            Words = new ObservableCollection<FormattedWord>();
+        }
 
         private string _Text;
         public string Text
@@ -18,49 +26,13 @@ namespace CapsulaScript.Model
             {
                 if (_Text == value) return;
                 _Text = value;
+                Format();
                 OnPropertyChanged();
             }
         }
 
-
-        private Double _Rotationn;
-        public Double Rotationn
-        {
-            get { return _Rotationn; }
-            set
-            {
-                if (_Rotationn == value) return;
-                _Rotationn = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _TranslationX;
-        public int TranslationX
-        {
-            get { return _TranslationX; }
-            set
-            {
-                if (_TranslationX == value) return;
-                _TranslationX = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _TranslationY;
-        public int TranslationY
-        {
-            get { return _TranslationY; }
-            set
-            {
-                if (_TranslationY == value) return;
-                _TranslationY = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private List<FormattedWord> _Words;
-        public List<FormattedWord> Words
+        private ObservableCollection<FormattedWord> _Words;
+        public ObservableCollection<FormattedWord> Words
         {
             get { return _Words; }
             set
@@ -69,6 +41,36 @@ namespace CapsulaScript.Model
                 _Words = value;
                 OnPropertyChanged();
             }
+        }
+
+        public void Format()
+        {
+            Text = Regex.Replace(Text, @"\s+", " ");
+            string[] strList = Text.Split(new char[] { ' ' });
+            Words.Clear();
+            List<string> exp = Globals.Expression.TokenExpression;
+            foreach (string splitted in strList)
+            {
+                FormattedWord fw = new FormattedWord
+                {
+                    Word = $"{splitted.Trim()} "
+                };
+                Words.Add(fw);
+            }
+            for (int i = 0; i < exp.Count; i++)
+            {
+                if (i < Words.Count)
+                {
+                    FormattedWord fw = Words.ElementAt(i);
+                    string xp = exp.ElementAt(i);
+                    fw.ApplyFormat(xp);
+                }
+            }
+        }
+
+        public void InvertText()
+        {
+            Words = new ObservableCollection<FormattedWord>(Words.Reverse());
         }
     }
 }

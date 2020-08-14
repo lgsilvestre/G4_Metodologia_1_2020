@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:CapsulaScript"
         xmlns:view="clr-namespace:CapsulaScript.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="CapsulaScript" Height="700" Width="1000">
     <Window.Resources>
         
     </Window.Resources>
     <Grid>
-        <view:InputView/>
+        <view:InputView Loaded="InputView_Loaded"/>
     </Grid>
 </Window>
