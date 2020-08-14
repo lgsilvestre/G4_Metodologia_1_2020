@@ -142,5 +142,24 @@ namespace CapsulaScript.View
                 }
             }
         }
+
+        private bool IsValidSPChar(char character)
+        {
+            switch (character)
+            {
+                case '«':
+                    return true;
+                case '»':
+                    return true;
+                case '“':
+                    return true;
+                case '”':
+                    return true;
+                case '.':
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 }
